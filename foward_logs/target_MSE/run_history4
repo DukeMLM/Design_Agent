@@ -1,0 +1,127 @@
+[
+  {
+    "size": 500,
+    "mse": 0.0057,
+    "action": "generated",
+    "reason": "starting point"
+  },
+  {
+    "size": 800,
+    "mse": 0.005577,
+    "improvement_per_sample": -4.0999999999999946e-07,
+    "action": "tested",
+    "reason": "initial test to assess performance gain with more data"
+  },
+  {
+    "size": 1100,
+    "mse": 0.004931,
+    "improvement_per_sample": -2.1533333333333357e-06,
+    "action": "tested",
+    "reason": "small improvement observed, continue testing with more data to assess trend"
+  },
+  {
+    "size": 1400,
+    "mse": 0.004389,
+    "improvement_per_sample": -1.8066666666666666e-06,
+    "action": "tested",
+    "reason": "improvement per sample accelerating, continue testing with more data"
+  },
+  {
+    "size": 1750,
+    "mse": 0.004049,
+    "improvement_per_sample": -9.714285714285715e-07,
+    "action": "tested",
+    "reason": "recent \u0394MSE/\u0394samples remains strong; continue testing with more data"
+  },
+  {
+    "size": 2150,
+    "mse": 0.003834,
+    "improvement_per_sample": -5.374999999999987e-07,
+    "action": "tested",
+    "reason": "continue testing to assess if current code maintains positive gains despite slowing per-sample improvement"
+  },
+  {
+    "size": 2600,
+    "mse": 0.00352,
+    "improvement_per_sample": -6.977777777777779e-07,
+    "action": "tested",
+    "reason": "recent \u0394MSE/\u0394samples still positive; continue testing with more data to drive MSE down"
+  },
+  {
+    "size": 3120,
+    "mse": 0.003338,
+    "improvement_per_sample": -3.5000000000000057e-07,
+    "action": "tested",
+    "reason": "recent \u0394MSE/\u0394samples remains strong; continue testing with larger data to drive MSE down"
+  },
+  {
+    "size": 3120,
+    "mse": 0.003842,
+    "improvement_per_sample": "N/A",
+    "action": "generated",
+    "reason": "per-sample gains have diminished significantly, indicating saturation of current code"
+  },
+  {
+    "size": 3500,
+    "mse": 0.003675,
+    "improvement_per_sample": -4.3947368421052647e-07,
+    "action": "tested",
+    "reason": "evaluate new code with more data to confirm if MSE spike was noise"
+  },
+  {
+    "size": 4200,
+    "mse": 0.003489,
+    "improvement_per_sample": -2.6571428571428567e-07,
+    "action": "tested",
+    "reason": "current code still yielding meaningful per-sample gains; continue testing with more data"
+  },
+  {
+    "size": 5250,
+    "mse": 0.003315,
+    "improvement_per_sample": -1.657142857142858e-07,
+    "action": "tested",
+    "reason": "current code still yielding positive per-sample gains; continue testing with more data"
+  },
+  {
+    "size": 6500,
+    "mse": 0.003,
+    "improvement_per_sample": -2.5199999999999977e-07,
+    "action": "tested",
+    "reason": "current code still yielding positive gains; continue testing with more data"
+  },
+  {
+    "size": 7800,
+    "mse": 0.002805,
+    "improvement_per_sample": -1.499999999999999e-07,
+    "action": "tested",
+    "reason": "current code still yielding positive per-sample gains; continue testing with more data"
+  },
+  {
+    "size": 9750,
+    "mse": 0.002586,
+    "improvement_per_sample": -1.1230769230769231e-07,
+    "action": "tested",
+    "reason": "current code still yielding meaningful per-sample gains; continue testing with more data"
+  },
+  {
+    "size": 9750,
+    "mse": 0.002052,
+    "improvement_per_sample": "N/A",
+    "action": "generated",
+    "reason": "diminishing per-sample improvements and substantial growth since last code generation"
+  },
+  {
+    "size": 11000,
+    "mse": 0.002005,
+    "improvement_per_sample": -3.760000000000013e-08,
+    "action": "tested",
+    "reason": "evaluate new code with more data to drive MSE below 0.002"
+  },
+  {
+    "size": 11300,
+    "mse": 0.001984,
+    "improvement_per_sample": -6.999999999999917e-08,
+    "action": "tested",
+    "reason": "Small incremental test to push MSE below 0.002 with minimal extra samples"
+  }
+]
