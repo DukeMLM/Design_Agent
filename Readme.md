@@ -15,4 +15,5 @@ LLM-driven agents that **train a forward surrogate model** (geometry → spectru
 - full requirement in environment_full.yml
 
 ### 2) Datasets
-- Use the data in: 
+- Use the data in: https://research.repository.duke.edu/concern/datasets/z316q2403?locale=en
+- Inverse dataset spilit in: 
