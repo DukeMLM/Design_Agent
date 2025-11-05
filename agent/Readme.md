@@ -12,7 +12,11 @@ os.environ['OPENAI_API_KEY'] = ""
 ```
 
 You also need to create the following folders:
+
+
 ./dataset — contains the full dataset (please download and place it here).
+
+
 ./input — used for temporary data during forward modeling.
 
 Once your API key is set, you can start the system by running:
