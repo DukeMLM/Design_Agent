@@ -9,7 +9,7 @@ You can do this by editing the following lines near the top of the file:
 api_key =""
 openai.api_key = api_key
 os.environ['OPENAI_API_KEY'] = ""
-
+```
 
 You also need to create the following folders:
 ./dataset — contains the full dataset (please download and place it here).
