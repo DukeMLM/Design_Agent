@@ -14,6 +14,32 @@ LLM-driven agents that **train a forward surrogate model** (geometry → spectru
 - simple requirement in requirements.txt
 - full requirement in environment_full.yml
 
+To dive into the details of forward modeling, please check the used AIDE (https://github.com/WecoAI/aideml).
+
 ### 2) Datasets
-- Use the data in: https://research.repository.duke.edu/concern/datasets/z316q2403?locale=en
-- Inverse dataset spilit in: 
+- Download the data in: https://research.repository.duke.edu/concern/datasets/z316q2403?locale=en and place them in ./agent/dataset
+- Inverse dataset spilit in: ./agent/dataset
+
+### 3) Run
+- python agent_system.py
+- It will take more then 20 hours
+
+---
+## Typical Workflow
+👤 Hi there! I'm here to assist you with metamaterials deep learning tasks. Briefly: do you want to run Forward training, Inverse design, or Both? (reply: forward / inverse / both)
+
+User: both
+
+> 📝  Let's create a task description!
+
+👤 Please describe your task and the dataset you have, in one or two paragraphs.
+
+User: The task involves designing and optimizing a deep learning regression model to predict the electromagnetic spectrum from geometry parameters. The goal is to achieve a mean squared error (MSE) of 2e-3.
+
+> 📝  Let's create a task description!
+
+👤 Could you clarify the model’s input/output dimensions?
+
+User: input 14; output: 2001
+
+Then, agent will perform the tasks.
