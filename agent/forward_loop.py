@@ -16,6 +16,7 @@ from sklearn.utils import shuffle
           # OpenAI Agents SDK
 from agents.tool import function_tool as tool
 from agents import Agent, Runner, ModelSettings
+
 import os
 import openai
 # Load from env or set default
@@ -334,6 +335,10 @@ async def code_data_loop(initial_size: int, maxsize: int) -> List[Dict[str, Any]
         "action": "generated",
         "reason": "New Generated"
     })
+
+    if initial_size >= maxsize:
+        print(f"🛑 Ending loop")
+        return code, initial_size
 
 
 
