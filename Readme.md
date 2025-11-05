@@ -38,4 +38,8 @@ User: The task involves designing and optimizing a deep learning regression mode
 
 User: input 14; output: 2001
 
-Then, agent will perform the forward modeling and inverse design.
+Then, agent will perform the forward modeling.
+
+---
+
+We will continue to improve it!
