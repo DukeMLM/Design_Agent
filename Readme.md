@@ -30,16 +30,12 @@ To dive into the details of forward modeling, please check the used AIDE (https:
 
 User: both
 
-> 📝  Let's create a task description!
-
 👤 Please describe your task and the dataset you have, in one or two paragraphs.
 
 User: The task involves designing and optimizing a deep learning regression model to predict the electromagnetic spectrum from geometry parameters. The goal is to achieve a mean squared error (MSE) of 2e-3.
-
-> 📝  Let's create a task description!
 
 👤 Could you clarify the model’s input/output dimensions?
 
 User: input 14; output: 2001
 
-Then, agent will perform the tasks.
+Then, agent will perform the forward modeling and inverse design.
