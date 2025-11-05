@@ -10,19 +10,9 @@ api_key =""
 openai.api_key = api_key
 os.environ['OPENAI_API_KEY'] = ""
 ```
-
-You also need to create the following folders:
-
-
-./dataset — contains the full dataset (please download and place it here).
-
-
-./input — used for temporary data during forward modeling.
-
 Once your API key is set, you can start the system by running:
 python agent_system.py
 
-This will launch the interactive agent framework for forward model training and inverse design.
+## Run on your dataset
 
-
-Please note that the entire run may take more than 20 hours to complete.
+Please modify generate_dataset function in forward_loop.py 
