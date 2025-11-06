@@ -16,3 +16,5 @@ python agent_system.py
 ## Run on your dataset
 
 Currently, to save the time, we are simulating the data generation by downsampling from the full dataset. If you want to use your own dataset or change the way to generate the data, please modify generate_dataset function in forward_loop.py 
+
+If you have multiple targets, modify the inverse designer's tool in sub_agent.py.
