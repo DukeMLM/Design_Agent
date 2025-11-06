@@ -22,6 +22,7 @@ To dive into the details of forward modeling, please check the used AIDE (https:
 
 ### 3) Run
 - python agent_system.py
+- Provide the target (one spectrum) to agent (it will ask the path) in a .csv file (for example: ./agents/dataset/test_s_inverse_test_0.csv)
 - It will take more then 20 hours
 
 ---
