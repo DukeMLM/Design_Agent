@@ -49,6 +49,7 @@ We will continue to improve it!
 ## Citation
 If you use this repo in your research, please cite it as follows:
 
+```python
 @article{Lu2025,
   title = {An Agentic Framework for Autonomous Metamaterial Modeling and Inverse Design},
   ISSN = {2330-4022},
@@ -60,3 +61,4 @@ If you use this repo in your research, please cite it as follows:
   year = {2025},
   month = oct 
 }
+```
