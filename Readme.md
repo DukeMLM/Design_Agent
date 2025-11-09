@@ -44,3 +44,19 @@ Then, agent will perform the forward modeling.
 ---
 
 We will continue to improve it!
+
+---
+## Citation
+If you use this repo in your research, please cite it as follows:
+
+@article{Lu2025,
+  title = {An Agentic Framework for Autonomous Metamaterial Modeling and Inverse Design},
+  ISSN = {2330-4022},
+  url = {http://dx.doi.org/10.1021/acsphotonics.5c01514},
+  DOI = {10.1021/acsphotonics.5c01514},
+  journal = {ACS Photonics},
+  publisher = {American Chemical Society (ACS)},
+  author = {Lu,  Darui and Malof,  Jordan M. and Padilla,  Willie J.},
+  year = {2025},
+  month = oct 
+}
