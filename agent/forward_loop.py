@@ -383,7 +383,7 @@ async def code_data_loop(initial_size: int, maxsize: int) -> List[Dict[str, Any]
             # print("dataset_size", data_temp.shape[0])
             print("Raw output:", raw)
             mse = await parse_mse_async(raw)
-            print(f"🔍 Tested at size={next_size}, mse={se}")
+            print(f"🔍 Tested at size={next_size}, mse={mse}")
             history.append({
                 "size":   next_size,
                 "mse":     mse,
