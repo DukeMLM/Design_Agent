@@ -17,7 +17,7 @@ LLM-driven agents that **train a forward surrogate model** (geometry → spectru
 To dive into the details of forward modeling, please check the used AIDE (https://github.com/WecoAI/aideml).
 
 ### 2) Datasets
-- Download the data in: https://research.repository.duke.edu/concern/datasets/z316q2403?locale=en and place them in ./agent/dataset
+- Download the data (ADM.zip) in: https://research.repository.duke.edu/concern/datasets/z316q2403?locale=en and place them in ./agent/dataset
 - Inverse dataset spilit in: ./agent/dataset
 
 ### 3) Run
