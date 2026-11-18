@@ -1,0 +1,32 @@
+# secrets
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# downloaded dataset and the generated split (the inverse test files stay tracked)
+agent/dataset/ADM/
+agent/dataset/data_g.csv
+agent/dataset/data_s.csv
+agent/dataset/g_training.csv
+agent/dataset/s_training.csv
+agent/dataset/g_validation.csv
+agent/dataset/s_validation.csv
+
+# files written while the agent runs
+agent/input/*.csv
+agent/working/
+agent/workspaces/
+agent/logs/
+agent/desp_flex.txt
+agent/task_config.json
+agent/run_history.json
+agent/run_history.json.tmp
+agent/best_solution.py
+agent/modified.py
+agent/real_inverse.png
+agent/evaluation_results.npz
+
+# local test environment
+.venv/
