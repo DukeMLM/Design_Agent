@@ -24,7 +24,6 @@ agent/task_config.json
 agent/run_history.json
 agent/run_history.json.tmp
 agent/best_solution.py
-agent/modified.py
 agent/real_inverse.png
 agent/evaluation_results.npz
 

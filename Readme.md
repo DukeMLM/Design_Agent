@@ -76,7 +76,7 @@ Then, agent will perform the forward modeling.
 
 The forward stage writes `best_solution.py` (the selected training script) and `run_history.json`. The inverse stage refactors that script into `modified.py`, retrains it (`model_final.pth`, `x_scaler.save`, `y_scaler.save`) and runs the Neural-Adjoint design; the designed geometry and its surrogate MSE are returned and the spectra are plotted in `real_inverse.png`.
 
-To run the inverse stage alone, `best_solution.py` from a forward run (or a `modified.py` that matches `model_final.pth`) must be in the `agent` folder.
+To run the inverse stage alone, the `agent` folder needs a `modified.py` that matches `model_final.pth`. The repository ships both: `modified.py` is the training script of the shipped model (run 3 in `logs/target_mse`), so after `prepare_dataset.py` the inverse stage runs on a fresh clone without retraining. After a forward run, the inverse stage refactors the new `best_solution.py` and retrains it, which replaces `modified.py`, `model_final.pth` and both scalers.
 
 ---
 

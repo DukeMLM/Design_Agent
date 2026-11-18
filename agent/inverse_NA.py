@@ -5,6 +5,7 @@ This module mainly contains the implementation of the Neural Adjoint (NA). The c
 
 """
 
+import importlib.util
 import os
 from typing import Any, Dict, List, Tuple
 
@@ -28,17 +29,26 @@ DEVICE = torch.device(cfg.DEVICE or ("cuda:0" if torch.cuda.is_available() else 
 
 
 def load_forward_model_class():
-    """Return the `forward_model` class defined in modified.py (the verified training script)."""
-    try:
-        from modified import forward_model
-    except ModuleNotFoundError as e:
-        if e.name != "modified":
-            raise
+    """
+    Return the `forward_model` class defined in modified.py (the verified training script).
+
+    The file is loaded by its path (config.MODIFIED_CODE_FILE, in the working
+    folder): the same file that the code-verify step writes and checks. A plain
+    `from modified import forward_model` could pick up another modified.py on
+    sys.path, or the class of an earlier version that Python still has cached.
+    """
+    path = os.path.abspath(cfg.MODIFIED_CODE_FILE)
+    if not os.path.exists(path):
         raise FileNotFoundError(
             "modified.py was not found. Run the code-verify step first (modifier.py): it writes "
             "modified.py, model_final.pth, x_scaler.save and y_scaler.save."
-        ) from e
-    return forward_model
+        )
+    spec = importlib.util.spec_from_file_location("modified", path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    if not hasattr(module, "forward_model"):
+        raise AttributeError(f"{path} does not define the class `forward_model`.")
+    return module.forward_model
 
 
 def geometry_bounds(x_scaler) -> Tuple[np.ndarray, np.ndarray]:
