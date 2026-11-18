@@ -52,6 +52,12 @@ The defaults are in `agent/config.py`. Each one can be changed with an environme
 | `NA_BATCH_SIZE`, `NA_BACKPROP_STEPS`, `NA_LR` | 3000, 400, 0.001 | Neural-Adjoint inverse design. |
 | `DEVICE` | cuda:0 if available, else cpu | Device of the inverse design. |
 
+If a default model is not available to your API key, set `AGENT_MODEL` (planner and sub-agents) and `AIDE_CODE_MODEL` / `AIDE_FEEDBACK_MODEL` (AIDE) to models that are.
+
+### 6) Small tests
+- `python tests/test_fixes.py`: offline tests, no API key needed. The AIDE search is replaced by a simple MLP script and the LLM calls by scripted answers; the dataset generation, the code-data loop, the code verification and the inverse design are the real code.
+- `python tests/live_small_run.py`: a small run of the whole system with real LLM calls (a few cents); only the AIDE search is replaced by the simple MLP script.
+
 ---
 ## Typical Workflow
 👤 Hi there! I'm here to assist you with metamaterials deep learning tasks. Briefly: do you want to run Forward training, Inverse design, or Both? (reply: forward / inverse / both)

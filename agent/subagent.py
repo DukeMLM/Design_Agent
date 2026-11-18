@@ -153,7 +153,11 @@ async def code_data_loops(dataset_size: int) -> dict:
         "code_path": "best_solution.py",
         "final_size": result["size"],
         "final_mse": result["mse"],
-        "conclusion": f"Completed loop at size={result['size']} with validation MSE={result['mse']}"
+        "final_mse_size": result["mse_size"],
+        "conclusion": (
+            f"Completed loop at size={result['size']}; validation MSE={result['mse']} "
+            f"(measured at size={result['mse_size']})"
+        )
     }
 
 ForwardTrainer = Agent(
@@ -163,13 +167,14 @@ You are the Forward Trainer agent. You will be given a single integer argument: 
 1. Call `generate_datasets(dataset_size)` to write out the training/validation CSV files with inital dataset size.
 2. After it has returned, invoke `code_data_loops(dataset_size)` to run the AIDE and dataset size optimize loop.
    It saves the final Python source to best_solution.py and returns a dict with
-   `code_path`, `final_size`, `final_mse` and `conclusion`.
+   `code_path`, `final_size`, `final_mse`, `final_mse_size` and `conclusion`.
 3. If a tool result starts with "FAILED", do not call the tool again. Return {"status": "failed", "error": <the message>}.
 4. Otherwise return exactly the dict returned by `code_data_loops`:
    {
      "code_path": "best_solution.py",
      "final_size": <the final dataset size integer>,
      "final_mse": <the final validation MSE>,
+     "final_mse_size": <the dataset size that MSE was measured at>,
      "conclusion": <the summary of the process>,
    }
     """,

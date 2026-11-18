@@ -116,8 +116,8 @@ class NeuralAdjointEvaluator:
         self._loaded = False
 
     def load_models(self):
-        self.model.load_state_dict(torch.load(self.model_path, map_location=DEVICE))
-        self.simulator.load_state_dict(torch.load(cfg.MODEL_FILE, map_location=DEVICE))
+        self.model.load_state_dict(torch.load(self.model_path, map_location=DEVICE, weights_only=True))
+        self.simulator.load_state_dict(torch.load(cfg.MODEL_FILE, map_location=DEVICE, weights_only=True))
         for net in (self.model, self.simulator):
             net.eval()  # BatchNorm and Dropout in inference mode
             for p in net.parameters():

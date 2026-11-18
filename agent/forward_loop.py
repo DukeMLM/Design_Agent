@@ -311,9 +311,10 @@ async def code_data_loop(
     mse_threshold: Optional[float] = None,
 ) -> Dict[str, Any]:
     """Run the AIDE code-data loop until done or maxsize reached.
-        Returns {"code", "size", "mse", "history"}: the code in use at the end
-        (also saved to best_solution.py), the dataset size it was last run on,
-        and its validation MSE.
+        Returns {"code", "size", "mse", "mse_size", "history"}: the code in use
+        at the end (also saved to best_solution.py), the size of the dataset now
+        in ./input, the validation MSE of that code and the dataset size that
+        MSE was measured at.
         """
     if mse_threshold is None:
         mse_threshold = load_target_mse()
@@ -332,6 +333,7 @@ async def code_data_loop(
         )
     code = sol["code"]
     current_mse = sol["mse"]
+    current_mse_size = initial_size  # dataset size current_mse was measured at
     current_size = initial_size
     save_code(code)
     record({
@@ -369,6 +371,7 @@ async def code_data_loop(
             if better:
                 code = sol["code"]
                 current_mse = sol["mse"]
+                current_mse_size = next_size
                 save_code(code)
             current_size = next_size
             record({
@@ -402,6 +405,7 @@ async def code_data_loop(
                 continue
             print(f"🔍 Tested at size={next_size}, mse={mse}")
             current_mse = mse
+            current_mse_size = next_size
             record({
                 "size":   next_size,
                 "mse":    mse,
@@ -411,7 +415,13 @@ async def code_data_loop(
     else:
         print(f"🛑 Ending loop: {config.MAX_LOOP_DECISIONS} decisions reached")
 
-    return {"code": code, "size": current_size, "mse": current_mse, "history": history}
+    return {
+        "code": code,
+        "size": current_size,
+        "mse": current_mse,
+        "mse_size": current_mse_size,
+        "history": history,
+    }
 
 if __name__ == "__main__":
     print("=== AIDE Loop ===")
@@ -422,4 +432,4 @@ if __name__ == "__main__":
     generate_dataset(dataset_size)
 
     result = asyncio.run(code_data_loop(dataset_size, maxsize=config.MAX_DATASET_SIZE))
-    print(f"Final size: {result['size']}, final MSE: {result['mse']}")
+    print(f"Final size: {result['size']}, final MSE: {result['mse']} (measured at size {result['mse_size']})")
