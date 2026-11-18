@@ -10,6 +10,16 @@ The OpenAI API key is read from the OPENAI_API_KEY environment variable (or from
 """
 
 import os
+import sys
+
+# The progress messages contain emoji. On a console that cannot encode them
+# (for example a Windows console with a legacy code page) print() would raise
+# and stop a long run, so unencodable characters are replaced instead.
+for _stream in (sys.stdout, sys.stderr):
+    try:
+        _stream.reconfigure(errors="replace")
+    except (AttributeError, ValueError):
+        pass
 
 try:  # python-dotenv is installed together with aideml
     from dotenv import load_dotenv
